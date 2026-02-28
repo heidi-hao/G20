@@ -36,9 +36,13 @@ func JsonEncode(obj any) []byte {
 		field := ot.Field(i)
 		fieldValue := ov.Field(i)
 		if field.Name == "Name" {
-			fmt.Println()
+			fmt.Println("发现 Name 字段，准备进行特殊处理...")
+			fieldValue.SetString(fieldValue.String() + "_changed")
 		}
+		fmt.Printf("  字段 %d: 名称=%s, 类型=%s, Tag=%s, JsonTag=%s, Value=%v\n",
+			i, field.Name, field.Type.Name(), field.Tag, field.Tag.Get("json"), fieldValue.Interface())
 	}
+	return []byte{}
 
 }
 

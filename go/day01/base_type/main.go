@@ -13,8 +13,11 @@ const (
 )
 
 func main() {
-	a := []byte{}
 
+	u := User{Name: "heidi", age: 18}
+	fmt.Println("%+v \n", u)
+
+	a := []byte{} //长度为 0 的切片
 	// %+v 打印结构体字段名
 	// []
 	fmt.Printf("%+v \n", a)
@@ -38,4 +41,9 @@ func main() {
 	if status == STATUS_ONLINE {
 
 	}
+}
+
+type User struct {
+	Name string
+	age  int
 }

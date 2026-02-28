@@ -18,7 +18,17 @@ func main() {
 	sumWithPointer(a, b, &result)
 	fmt.Println("a+b=", result)
 
+	//外部改变内部的值
+	x := 1
+	change(&x)
+	fmt.Println(x) //100
+
 }
+
+func change(p *int) { //p是一个指向int的指针
+	*p = 100
+}
+
 func sum(a int, b int) int {
 	return a + b
 }
