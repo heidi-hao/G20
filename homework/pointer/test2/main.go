@@ -46,7 +46,6 @@ func (a *Account) Transfer(target *Account, amount float64) bool {
 		target.Balance = target.Balance + amount
 		return true
 	}
-
 	return true
 
 }
